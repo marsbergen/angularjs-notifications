@@ -1,0 +1,29 @@
+{
+	"name": "angularjs-notifications",
+	"version": "0.1.0",
+	"homepage": "https://github.com/marsbergen/angularjs-notifications",
+	"authors": [
+		"Patrick van Marsbergen <patrick@mimbee.nl>"
+	],
+	"description": "Notification service for AngularJS apps",
+	"main": "notifications.js",
+	"keywords": [
+		"angularjs",
+		"rest",
+		"api",
+		"service"
+	],
+	"license": "MIT",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
+	"dependencies": {
+		"angular-unstable": "~1.1.5",
+		"angular-resource-unstable": "~1.1.5",
+		"jquery": "~1.10.2"
+	}
+}
