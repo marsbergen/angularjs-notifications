@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('$notification', [])
-	.factory('$notification', ['$timeout', function ($timeout) {
+angular.module('Notifications', [])
+	.factory('notificationFactory', ['$timeout', function ($timeout) {
 
-		var notifications = JSON.parse(localStorage.getItem('$notifications')) || [],
+		var notifications = JSON.parse(localStorage.getItem('notifications')) || [],
 			queue = [];
 
 		var settings = {
@@ -202,9 +202,9 @@ angular.module('$notification', [])
 				// Save all the notifications into localStorage
 //        console.log(JSON);
 				if (settings.localStorage) {
-					localStorage.setItem('$notifications', JSON.stringify(notifications));
+					localStorage.setItem('notifications', JSON.stringify(notifications));
 				}
-				// console.log(localStorage.getItem('$notifications'));
+				// console.log(localStorage.getItem('notifications'));
 			},
 
 			restore: function () {
@@ -218,7 +218,7 @@ angular.module('$notification', [])
 
 		};
 	}]).
-	directive('notifications', ['$notification', '$compile', function ($notification) {
+	directive('notifications', ['notificationFactory', '$compile', function (notificationFactory) {
 		/**
 		 *
 		 * It should also parse the arguments passed to it that specify
@@ -262,7 +262,7 @@ angular.module('$notification', [])
 			template: html,
 			link: link,
 			controller: ['$scope', function NotificationsCtrl($scope) {
-				$scope.queue = $notification.getQueue();
+				$scope.queue = notificationFactory.getQueue();
 
 				$scope.removeNotification = function (noti) {
 					$scope.queue.splice($scope.queue.indexOf(noti), 1);
