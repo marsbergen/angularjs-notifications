@@ -187,6 +187,7 @@ angular.module('Notifications', [])
 					queue.push(notification);
 					$timeout(function removeFromQueueTimeout() {
 						queue.splice(queue.indexOf(notification), 1);
+						notifications.splice(notifications.indexOf(notification), 1);
 					}, settings[type].duration);
 
 				}
